@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="settings_news_type_labels">
+        <item>@string/settings_news_type_all_label</item>
+        <item>@string/settings_news_type_sports_label</item>
+        <item>@string/settings_news_type_news_label</item>
+        <item>@string/settings_news_type_lifestyle_label</item>
+        <item>@string/settings_news_type_opinion_label</item>
+        <item>@string/settings_news_type_arts_label</item>
+    </string-array>
+
+    <string-array name="settings_news_type_values">
+        <item>@string/settings_news_type_all_value</item>
+        <item>@string/settings_news_type_sports_value</item>
+        <item>@string/settings_news_type_news_value</item>
+        <item>@string/settings_news_type_lifestyle_value</item>
+        <item>@string/settings_news_type_opinion_value</item>
+        <item>@string/settings_news_type_arts_value</item>
+    </string-array>
+</resources>

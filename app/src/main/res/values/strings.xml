@@ -1,3 +1,52 @@
 <resources>
     <string name="app_name">NewsApp</string>
+    <string name="section_name"></string>
+
+    <!-- settings menu -->
+    <string name="settings_menu_item">News Settings</string>
+    <string name="settings_title">Filter News Items</string>
+
+    <!-- items per page  settings -->
+    <string name="settings_items_per_page_label">News Items Per Page</string>
+    <string name="settings_items_per_page_default" translatable="false">10</string>
+    <string name="settings_items_per_page_key" translatable="false">items_per_page</string>
+
+    <!-- Strings For Order-By Preference [CHAR LIMIT=30] -->
+    <string name="settings_news_type_label">News Type</string>
+    <string name="settings_news_type_key" translatable="false">news_type</string>
+    <string name="settings_news_type_default" translatable="false">@string/settings_news_type_all_value</string>
+
+    <!-- Label for all news option [CHAR LIMIT=20] -->
+    <string name="settings_news_type_all_label">All</string>
+    <string name="settings_news_type_all_value" translatable="false">all</string>
+
+    <!-- Label for sports option [CHAR LIMIT=20] -->
+    <string name="settings_news_type_sports_label">Sports</string>
+    <string name="settings_news_type_sports_value" translatable="false">sports</string>
+
+    <!-- Label for news option [CHAR LIMIT=20] -->
+    <string name="settings_news_type_news_label">News</string>
+    <string name="settings_news_type_news_value" translatable="false">news</string>
+
+    <!-- Label for lifestyle option [CHAR LIMIT=20] -->
+    <string name="settings_news_type_lifestyle_label">Life Style</string>
+    <string name="settings_news_type_lifestyle_value" translatable="false">lifestyle</string>
+
+    <!-- Label for opinion option [CHAR LIMIT=20] -->
+    <string name="settings_news_type_opinion_label">Opinion</string>
+    <string name="settings_news_type_opinion_value" translatable="false">opinion</string>
+
+    <!-- Label for arts option [CHAR LIMIT=20] -->
+    <string name="settings_news_type_arts_label">Arts</string>
+    <string name="settings_news_type_arts_value" translatable="false">arts</string>
+
+    <!-- No news string -->
+    <string name="no_news">No news found</string>
+
+    <!-- Java strings -->
+    <string name="category_string">category:\u0020</string>
+    <string name="year_published">year:\u0020</string>
+    <string name="month_published">month:\u0020</string>
+    <string name="day_of_month">day:\u0020</string>
+
 </resources>
