@@ -1,7 +1,6 @@
 package com.example.android.newsapp;
 
 import android.app.Activity;
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +10,6 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class NewsItemAdapter extends ArrayAdapter<NewsItem> {
-    private Context mContext;
     public NewsItemAdapter(Activity context, ArrayList<NewsItem> newsItems) {
         super(context, 0, newsItems);
     }
