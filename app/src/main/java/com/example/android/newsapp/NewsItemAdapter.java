@@ -47,10 +47,17 @@ public class NewsItemAdapter extends ArrayAdapter<NewsItem> {
         int dayOfPublicationText = currentNewsItem.getPublicationDayOfMonth();
         dayOfPublicationTextView.setText(String.valueOf(dayOfPublicationText));
 
-        TextView authorTextView =  convertView.findViewById(R.id.author_value);
-        String authorText = currentNewsItem.getAuthor();
-        authorTextView.setText(authorText);
-
+        TextView authorTitleTextView = convertView.findViewById(R.id.author_title);
+        TextView authorTextView = convertView.findViewById(R.id.author_value);
+        if (currentNewsItem.getAuthor().isEmpty()) {
+            authorTitleTextView.setVisibility(View.GONE);
+            authorTextView.setVisibility(View.GONE);
+        } else {
+            String authorText = currentNewsItem.getAuthor();
+            authorTextView.setText(authorText);
+            authorTitleTextView.setVisibility(View.VISIBLE);
+            authorTextView.setVisibility(View.VISIBLE);
+        }
         return convertView;
     }
 
