@@ -47,6 +47,10 @@ public class NewsItemAdapter extends ArrayAdapter<NewsItem> {
         int dayOfPublicationText = currentNewsItem.getPublicationDayOfMonth();
         dayOfPublicationTextView.setText(String.valueOf(dayOfPublicationText));
 
+        TextView authorTextView =  convertView.findViewById(R.id.author_value);
+        String authorText = currentNewsItem.getAuthor();
+        authorTextView.setText(authorText);
+
         return convertView;
     }
 

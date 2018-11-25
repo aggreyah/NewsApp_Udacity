@@ -9,7 +9,6 @@ public class NewsItemLoader extends AsyncTaskLoader<ArrayList<NewsItem>> {
     private String myUrl;
     public NewsItemLoader(Context context, String url) {
         super(context);
-        // TODO: Finish implementing this constructor
         myUrl = url;
     }
 
@@ -20,7 +19,6 @@ public class NewsItemLoader extends AsyncTaskLoader<ArrayList<NewsItem>> {
 
     @Override
     public ArrayList<NewsItem> loadInBackground() {
-        // TODO: Implement this method
         if(myUrl == null){
             return null;
         }

@@ -48,5 +48,12 @@
     <string name="year_published">year:\u0020</string>
     <string name="month_published">month:\u0020</string>
     <string name="day_of_month">day:\u0020</string>
+    <string name="item_author">author:\u0020</string>
+
+    <!-- NewsAppActivity class strings -->
+    <string name="guardian_api_url">https://content.guardianapis.com/search?</string>
+    <string name="page_size">page-size</string>
+    <string name="api_key">api-key</string>
+    <string name="api_key_value">91f5184b-3d15-4c77-b1b8-662f584d7776</string>
 
 </resources>

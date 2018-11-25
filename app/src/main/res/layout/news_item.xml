@@ -73,7 +73,21 @@
         <TextView
             android:id="@+id/web_publication_day_of_the_month"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/item_author"
+            android:textStyle="italic"
+            android:id="@+id/author_title"
+            android:textColor="@color/colorAccent"/>
+        <TextView
+            android:id="@+id/author_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"/>
     </LinearLayout>
 
 </RelativeLayout>
