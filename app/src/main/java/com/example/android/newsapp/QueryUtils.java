@@ -159,8 +159,14 @@ public final class QueryUtils {
                  * Create NewsItem java object from section name, web publication date,
                  * web title, web url, and pillar name
                  * Add news item to list of news items*/
-                newsItems.add(new NewsItem(currentSectionName, currentWebPublicationDate,
-                        currentWebTitle, currentWebUrl, currentPillarName));
+                if (currentWebTitle.split("\\|").length < 2){
+                    newsItems.add(new NewsItem(currentSectionName, currentWebPublicationDate,
+                            currentWebTitle, currentWebUrl, currentPillarName));
+                }else {
+                    String currentAuthorName = currentWebTitle.split("\\|")[1];
+                    newsItems.add(new NewsItem(currentSectionName, currentWebPublicationDate,
+                            currentWebTitle, currentWebUrl, currentPillarName, currentAuthorName));
+                }
             }
         } catch (JSONException e) {
             // If an error is thrown when executing any of the above statements in the "try" block,
