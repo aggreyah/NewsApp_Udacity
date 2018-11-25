@@ -17,18 +17,19 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 
 /**
- * Helper methods related to requesting and receiving earthquake data from USGS.
+ * Helper methods related to requesting and receiving news items data from the Guardian.
  */
 public final class QueryUtils {
 
     /** Tag for the log messages */
     public static final String LOG_TAG = QueryUtils.class.getSimpleName();
 
-    /**
-     * Create a private constructor because no one should ever create a {@link QueryUtils} object.
-     * This class is only meant to hold static variables and methods, which can be accessed
-     * directly from the class name QueryUtils (and an object instance of QueryUtils is not needed).
-     */
+    public static final int URL_CONNECT_READ_TIME_OUT = 10000;
+    public static final int URL_CONNECTION_CONNECT_TIME_OUT = 15000;
+    public static final int OK_RESPONSE_CODE = 200;
+    public static final String REQUEST_VERB = "GET";
+    public static final int THREAD_SLEEP_TIME = 2000;
+    /**constructor made private since no need of creating an instance of this class.*/
     private QueryUtils() {
     }
 
@@ -60,14 +61,14 @@ public final class QueryUtils {
         InputStream inputStream = null;
         try {
             urlConnection = (HttpURLConnection) url.openConnection();
-            urlConnection.setReadTimeout(10000 /* milliseconds */);
-            urlConnection.setConnectTimeout(15000 /* milliseconds */);
-            urlConnection.setRequestMethod("GET");
+            urlConnection.setReadTimeout(URL_CONNECT_READ_TIME_OUT /* milliseconds */);
+            urlConnection.setConnectTimeout(URL_CONNECTION_CONNECT_TIME_OUT /* milliseconds */);
+            urlConnection.setRequestMethod(REQUEST_VERB);
             urlConnection.connect();
 
             // If the request was successful (response code 200),
             // then read the input stream and parse the response.
-            if (urlConnection.getResponseCode() == 200) {
+            if (urlConnection.getResponseCode() == OK_RESPONSE_CODE) {
                 inputStream = urlConnection.getInputStream();
                 jsonResponse = readFromStream(inputStream);
             } else {
@@ -109,7 +110,7 @@ public final class QueryUtils {
      */
     public static ArrayList<NewsItem> extractNewsItems(String requestUrl) {
         try {
-            Thread.sleep(2000);
+            Thread.sleep(THREAD_SLEEP_TIME);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -132,8 +133,6 @@ public final class QueryUtils {
         // is formatted, a JSONException exception object will be thrown.
         // Catch the exception so the app doesn't crash, and print the error message to the logs.
         try {
-
-            // TODO: Parse the response given by the SAMPLE_JSON_RESPONSE string and
             // build up a list of NewsItem objects with the corresponding data.
             //Convert SAMPLE_JSON_RESPONSE String into a JSONObject
             JSONObject myApiResponseJsonObject = new JSONObject(jsonResponse);

@@ -42,14 +42,29 @@ public class NewsItem {
 
     /**get the news item publication day of the month*/
     public int getPublicationDayOfMonth(){
-        String date = mWebPublicationDate.split("T", 2)[0];
+        String date = mWebPublicationDate.split("T")[0];
         int dayOfMonth = Integer.parseInt(date.split("-")[2]);
         return dayOfMonth;
     }
 
     /**get the news item web title*/
     public String getWebTitle(){
-        return mWebTitle;
+        if (mWebTitle.contains("|")){
+            String title = mWebTitle.split("\\|")[0];
+            return title;
+        }else{
+            return  mWebTitle;
+        }
+    }
+
+    /**get the news item author*/
+    public String getAuthor(){
+        String author = "";
+        if (mWebTitle.contains("|")){
+            author = mWebTitle.split("\\|")[1];
+            return author;
+        }
+        return author;
     }
 
     /**get the news item web url*/
