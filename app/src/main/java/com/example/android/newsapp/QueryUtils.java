@@ -137,36 +137,36 @@ public final class QueryUtils {
             //Convert SAMPLE_JSON_RESPONSE String into a JSONObject
             JSONObject myApiResponseJsonObject = new JSONObject(jsonResponse);
             //Extract “response” JSONObject
-            JSONObject responseJSONObject = myApiResponseJsonObject.getJSONObject("response");
+            JSONObject responseJSONObject = myApiResponseJsonObject.optJSONObject("response");
             //Extract "results" JSONArray
-            JSONArray resultsJSONArray = responseJSONObject.getJSONArray("results");
+            JSONArray resultsJSONArray = responseJSONObject.optJSONArray("results");
             //Loop through each feature in the array
             for (int i = 0; i < resultsJSONArray.length(); i++){
                 //Get earthquake JSONObject at position i
-                JSONObject currentNewsItemFeatures = resultsJSONArray.getJSONObject(i);
+                JSONObject currentNewsItemFeatures = resultsJSONArray.optJSONObject(i);
                 //Extract “sectionName” for section name
-                String currentSectionName = currentNewsItemFeatures.getString("sectionName");
+                String currentSectionName = currentNewsItemFeatures.optString("sectionName");
                 //Extract “webPublicationDate” for publication date
-                String currentWebPublicationDate = currentNewsItemFeatures.getString("webPublicationDate");
+                String currentWebPublicationDate = currentNewsItemFeatures.optString("webPublicationDate");
                 //Extract “webTitle” for title
-                String currentWebTitle = currentNewsItemFeatures.getString("webTitle");
+                String currentWebTitle = currentNewsItemFeatures.optString("webTitle");
                 //Extract "webUrl" for the stories url
-                String currentWebUrl = currentNewsItemFeatures.getString("webUrl");
+                String currentWebUrl = currentNewsItemFeatures.optString("webUrl");
                 //Extract "pillarName" for the news type
-                String currentPillarName = currentNewsItemFeatures.getString("pillarName");
-
+                String currentPillarName = currentNewsItemFeatures.optString("pillarName");
+                //Extract fields
+                JSONObject currentFields = currentNewsItemFeatures.optJSONObject("fields");
+                //Extract author name from 'byline' key.
+                String currentAuthorName = "";
+                if (currentFields != null){
+                    currentAuthorName = currentFields.optString("byline");
+                }
                 /**
                  * Create NewsItem java object from section name, web publication date,
-                 * web title, web url, and pillar name
+                 * web title, web url, pillar name and author name
                  * Add news item to list of news items*/
-                if (currentWebTitle.split("\\|").length < 2){
-                    newsItems.add(new NewsItem(currentSectionName, currentWebPublicationDate,
-                            currentWebTitle, currentWebUrl, currentPillarName));
-                }else {
-                    String currentAuthorName = currentWebTitle.split("\\|")[1];
                     newsItems.add(new NewsItem(currentSectionName, currentWebPublicationDate,
                             currentWebTitle, currentWebUrl, currentPillarName, currentAuthorName));
-                }
             }
         } catch (JSONException e) {
             // If an error is thrown when executing any of the above statements in the "try" block,

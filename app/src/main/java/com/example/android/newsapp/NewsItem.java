@@ -12,18 +12,9 @@ public class NewsItem {
     //pillar Id field
     private String mNewsType;
     //author name field
-    private String mAuthor = "";
+    private String mAuthor;
 
-    /**Constructor for the NewsItem object with no author*/
-    public NewsItem(String section, String date, String title, String url, String type){
-        mSectionName = section;
-        mWebPublicationDate = date;
-        mWebTitle = title;
-        mWebUrl = url;
-        mNewsType = type;
-    }
-
-    /**Constructor for the NewsItem object with an author*/
+    /**Constructor for the NewsItem object */
     public NewsItem(String section, String date, String title, String url, String type, String author){
         mSectionName = section;
         mWebPublicationDate = date;
