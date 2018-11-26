@@ -107,6 +107,8 @@ public class NewsAppActivity extends AppCompatActivity
         uriBuilder.appendQueryParameter(getString(R.string.page_size), pageSize);
         // Append query parameter api-key to url.
         uriBuilder.appendQueryParameter(getString(R.string.api_key), getString(R.string.api_key_value));
+        // Append query show fields
+        uriBuilder.appendQueryParameter(getString(R.string.show_fields), getString(R.string.byline));
 
 
         // Return the completed uri `https://content.guardianapis.com/search?"api-key=91f5184b-3d15-4c77-b1b8-662f584d7776'
