@@ -81,7 +81,7 @@ public class NewsAppActivity extends AppCompatActivity
             });
         }else{
             emptyTextView = findViewById(R.id.no_news);
-            emptyTextView.setText(R.string.no_news);
+            emptyTextView.setText(R.string.no_news_internet);
             newsItemsListView.setEmptyView(emptyTextView);
             progressView.setVisibility(View.GONE);
 
@@ -121,6 +121,9 @@ public class NewsAppActivity extends AppCompatActivity
         newsItemAdapter.clear();
         if (newsItems != null && !newsItems.isEmpty()) {
             newsItemAdapter.addAll(newsItems);
+        }else{
+            emptyTextView = findViewById(R.id.no_news);
+            emptyTextView.setText(R.string.no_news);
         }
     }
 
