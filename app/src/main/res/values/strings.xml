@@ -41,7 +41,8 @@
     <string name="settings_news_type_arts_value" translatable="false">arts</string>
 
     <!-- No news string -->
-    <string name="no_news">No news found</string>
+    <string name="no_news">No news found\nProbably a broken url</string>
+    <string name="no_news_internet">No news found\nNo internet connectivity</string>
 
     <!-- Java strings -->
     <string name="category_string">category:\u0020</string>
